@@ -3,9 +3,9 @@ import {Route, Navigate} from 'react-router-dom'
 import {Auth} from '../App.js' 
 
 const PrivateRoute = ({children}) => { 
-    const isAuthenticated = useContext(Auth)
+    let {user} = useContext(Auth)
     console.log('Worjs')
-    return !isAuthenticated ? <Navigate to='/login'></Navigate> :children
+    return !user ? <Navigate to='/login'></Navigate> :children
 }
 
 export default PrivateRoute
